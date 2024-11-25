@@ -1,37 +1,19 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
-import { NavigationContainer } from '@react-navigation/native';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-
-// Screens
 import LoginScreen from '../screens/LoginScreen';
-import SignupScreen from '../screens/SignupScreen';
-import DashboardScreen from '../screens/DashboardScreen';
-import HomeTab from '../screens/DashboardTabs/HomeTab';
-import ProfileTab from '../screens/DashboardTabs/ProfileTab';
-import SettingsTab from '../screens/DashboardTabs/SettingsTab';
+import PolicyList from '../screens/PolicyList';
+import CreateLead from '../screens/CreateLead';
 
 const Stack = createStackNavigator();
-const Tab = createBottomTabNavigator();
 
-function DashboardTabs() {
+const AppNavigator = () => {
   return (
-    <Tab.Navigator>
-      <Tab.Screen name="Home" component={HomeTab} />
-      <Tab.Screen name="Profile" component={ProfileTab} />
-      <Tab.Screen name="Settings" component={SettingsTab} />
-    </Tab.Navigator>
+    <Stack.Navigator initialRouteName="Login">
+      <Stack.Screen name="Login" component={LoginScreen}  />
+      <Stack.Screen name="PolicyList" component={PolicyList} />
+      <Stack.Screen name="CreateLead" component={CreateLead} />
+    </Stack.Navigator>
   );
-}
+};
 
-export default function AppNavigator() {
-  return (
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName="Login">
-        <Stack.Screen name="Login" component={LoginScreen} />
-        <Stack.Screen name="Signup" component={SignupScreen} />
-        <Stack.Screen name="Dashboard" component={DashboardScreen} />
-      </Stack.Navigator>
-    </NavigationContainer>
-  );
-}
+export default AppNavigator;

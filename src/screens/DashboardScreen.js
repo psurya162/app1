@@ -19,6 +19,7 @@ export default function DashboardScreen() {
         tabBarStyle: { backgroundColor: '#f5f5f5' },
         tabBarActiveTintColor: '#6200EE',
         tabBarInactiveTintColor: '#888',
+        
       }}
     >
       <Tab.Screen name="Home" component={HomeTab} />
